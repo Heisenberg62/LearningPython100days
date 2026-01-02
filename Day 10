@@ -1,0 +1,98 @@
+Functions with outputs
+
+We've seen functions with only an execution body, functions with inputs that allow for variation in execution of the function body and now we'll see the final form of functions. 
+Functions that can have outputs.
+
+
+You can create a function with a body, input and output like this:
+
+def function_name(input_parameter):
+    <body of function that uses input_argument>
+    return output
+
+format_name(f_name="bsafmnas dsfsdf".title(),l_name="sdsad sadsad".title())
+
+Note : return is not the alternative of print() function. 
+Print vs. Output
+Return vs. Display: The return statement is used to give back a value from a function, which can be used later, while print is used to display a value to the console only for the programmer to see.
+
+---------------------------------EXAMPLE----------------------------------------------------------------------------------------------
+
+def format_name (f_name, l_name):
+    return f_name+" "+l_name.title()
+def address (address1):
+    return address1.title()
+
+formated_name = format_name("first name", "last name")
+print(formated_name)
+second_return = address(formated_name)
+print (second_return)
+combo_function = formated_name + second_return
+print(combo_function)
+
+Multiple Return Values
+
+Functions terminate at the return keyword. If you write code below the return statement that code will not be executed.
+However, you can have multiple return statements in one function. So how does that work?
+
+Conditional Returns
+When we have control flow, as in the code will behave differently (go down different execution paths) depending on certain conditional checks, we can end up with multiple endings (returns).
+
+e.g.
+
+def canBuyAlcohol(age):
+    if age >= 18:
+        return True
+    else:
+        return False
+
+Empty Returns
+You can also write return without anything afterwards, and this just tells the function to exit(but we will get none in the output).
+
+e.g.
+
+def canBuyAlcohol(age):
+    # If the data type of the age input is not a int, then exit.
+    if type(age) != int:
+        return
+
+    if age >= 18:
+        return True
+    else:
+        return False
+
+------------------------------LEAP YEAR -----------------------
+my code-----------
+def is_leap_year(year):
+    if year%4==0:
+       if year%100:
+          if year%400:
+              return True
+          else:
+              return False
+       else:
+           return True
+    else :
+        return False
+    
+is_leap_year(2024)
+
+SOlution was exactly the same it but it still did not worked out,
+eror found i for got to mention the ==0 which i was thinking in my mind i have already written but it was not there.
+Note: if any Doubt always check the code in the thonny in debugging mode.
+
+optimal solution was in three lines including function and calling the function.
+
+-------------------------------------solution----------------------------------------
+def is_leap_year(year):
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                return True
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
+is_leap_year(20)
