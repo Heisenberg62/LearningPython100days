@@ -1,0 +1,44 @@
+Before I start writing any code, I first create a flowchart for the program. 
+This helps me understand the problem better and solve many issues right at the planning stage.
+
+# import art
+# print(art.logo)
+def add(n1, n2):
+    return n1 + n2
+def subtract(n1, n2):
+    return n1 - n2
+def divide(n1, n2):
+    return n1 / n2
+def multiply(n1, n2):
+    return n1 * n2
+#note using () with function will trigger the function as we just want to assign as value dont use fun() just use fun
+operations = {
+    "+":add,
+    "-":subtract,
+    "*":multiply,
+    "/":divide,
+}
+continue_loop = ""
+# operations["*"] is equals to multiply and it is equals to def multiply(n1, n2):
+#     return n1 * n2 that means we can directly assign the values after operations["*"](4,8)
+# op = operations["*"]
+# print(op(4,8))
+want_to_continue = True
+while want_to_continue:
+ f_number = int(input("Enter the first number: "))
+ operand = input("Enter the operation you want to perform\n'+', \n'-', \n'*' \n'/': ")
+ s_number = int(input("Enter the second number: "))
+ output = operations[operand](f_number, s_number)
+ print(output)
+ want_to_continue = input(f"type y to continue with {output} or n to start new calculation")
+ if want_to_continue == "y":
+     output2_loop = True
+     while output2_loop:
+         operand = input("Enter the operation you want to perform\n'+', \n'-', \n'*' \n'/': ")
+         s_number = int(input("Enter the second number: "))
+         output2 = operations[operand](output, s_number)
+         print(output2)
+         output = output2
+         want_to_continue = input(f"type y to continue with {output2} or n to start new calculation")
+ else:
+     want_to_continue = True
