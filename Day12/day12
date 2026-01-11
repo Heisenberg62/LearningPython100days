@@ -1,1 +1,59 @@
+I created this from scratch
+this can be made more simple
+1st attempt
+
+import random
+from art import logo
+numbers=[]
+for char in range(1,101):
+    numbers.append(char)
+guessed_number=random.choice(numbers)
+print(logo)
+print("Welcome to the Number Guessing Game!")
+print("I'm thinking of a number between 1 and 100.")
+game_difficulty =input("Choose a difficulty. Type 'easy' or 'hard': ")
+
+if game_difficulty=="easy":
+    keep_trying = True
+    no_of_attempt = 10
+    while keep_trying:
+        if no_of_attempt > 0:
+            guess = int(input("make a guess"))
+            if guess == guessed_number:
+                keep_trying = False
+                print(f"you guessed the number correctly{guess}")
+            elif guess > guessed_number:
+                print(f"too high")
+                no_of_attempt -= 1
+                print(f"you have {no_of_attempt} attempts remaining")
+            elif guess < guessed_number:
+                print(f"too low")
+                no_of_attempt -= 1
+                print(f"you have {no_of_attempt} attempts remaining")
+        elif no_of_attempt == 0:
+            keep_trying = False
+            print("you ran out of attempts")
+
+else:
+    keep_trying = True
+    no_of_attempt = 5
+    while keep_trying:
+        if no_of_attempt > 0:
+            guess = int(input("make a guess"))
+            if guess == guessed_number:
+                keep_trying = False
+                print(f"you guessed the number correctly{guess}")
+            elif guess > guessed_number:
+                print(f"too high")
+                no_of_attempt -= 1
+                print(f"you have {no_of_attempt} attempts remaining")
+            elif guess < guessed_number:
+                print(f"too low")
+                no_of_attempt -= 1
+                print(f"you have {no_of_attempt} attempts remaining")
+        elif no_of_attempt == 0:
+            keep_trying = False
+            print("you ran out of attempts")
+
+
 
