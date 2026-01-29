@@ -1,0 +1,78 @@
+#rember whenever you are trying a question and you are not able to solve it take a break and try from scratch sometimes it helps and basic logic should be clear.
+
+# compare A: randomly genrate a name ffrom data with name, profesiion, from nation
+# while compare a with compare bthere should be a vs logo
+# Against B: name, profession, from nation
+# ask for the input who has more followers"Type 'A' or 'B'" make sure all the small and captial both are accepted
+# now compare the the input a with b whoever has more followers if this correct add score +1 to final
+# or if no print the final score you loose your final score
+# if input is different from a or b "Sorry, that's wrong. Final score: 0"
+
+import random
+from art import *
+from game_data import data
+
+game_on = True
+final_score = 0
+a = random.choice(data)
+b = random.choice(data)
+a_fans = a["follower_count"]
+b_fans = b["follower_count"]
+
+
+def compare_a(input):
+    print(f"Compare A:{input['name']} {input['description']} {input['country']}")
+
+
+def against_b(input):
+    print(f"Against B:{input['name']} {input['description']} {input['country']}")
+
+
+def compare_a_b(input):
+    global final_score
+    global game_on
+    global a
+    if input == 'a':
+        if a_fans > b_fans:
+            final_score += 1
+            a = b
+            print(a)
+        else:
+            print(f"Sorry, that's wrong. Final score:{final_score}")
+            game_on = False
+    elif input == 'b':
+        if b_fans > a_fans:
+            final_score += 1
+            a = b
+            print(a)
+        else:
+            print(f"Sorry, that's wrong. Final score:{final_score}")
+            game_on = False
+
+
+def play_again():
+    global b
+
+    b = random.choice(data)
+
+    print(logo)
+    if final_score > 0:
+        print("You are Right!", final_score)
+    compare_a(a)
+    print(vs)
+    against_b(b)
+
+    user_input = input("Who has more followers? Type 'A' or 'B': ").lower()
+    print(20 * " ")
+    compare_a_b(user_input)
+
+
+while game_on:
+    play_again()
+
+
+
+
+
+
+
